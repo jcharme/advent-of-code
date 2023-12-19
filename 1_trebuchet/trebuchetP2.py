@@ -6,11 +6,18 @@ Consider your entire calibration document. What is the sum of all of the calibra
 
 '''
 import fileinput
-
 total = 0
 
-for line in fileinput.input(files ='input_aoc_day1.txt'): 
-    num = [i  for i in line if i.isdigit()]
-    total += int(str(num[0]) +str(num[-1]) )
+spelled = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine']
 
+for line in fileinput.input(files ='1_trebuchet/input_aoc_day1.txt'): 
+    num = []
+    for i, char in enumerate(line):
+        if char.isdigit():
+            num.append(char)
+        elif char.isalpha():
+            for name in spelled:
+                if name == line[i:i+len(name)]:
+                    num.append(str(spelled.index(name)))
+    total += int(str(num[0]) +str(num[-1]))
 print(total)
