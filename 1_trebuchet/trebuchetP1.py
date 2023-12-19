@@ -11,7 +11,7 @@ import fileinput
 
 total = 0
 
-for line in fileinput.input(files ='input_aoc_day1.txt'): 
+for line in fileinput.input(files = '/home/jcharme/repos/aoc23/1_trebuchet/input1.txt'): 
     num = [i for i in line if i.isdigit()]
     total += int(str(num[0]) +str(num[-1]) )
 
